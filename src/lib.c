@@ -8,7 +8,7 @@
 
 BQNV match(const char* regex, const char* src) {
     BQNV vals[BUFFER];
-    int erroffset, ovector[OVECCOUNT], rc, i=0;
+    int erroffset, ovector[OVECCOUNT]={0}, rc, i=0;
     const char *error;
 
     pcre* re = pcre_compile(regex, 0, &error, &erroffset, NULL);
@@ -18,7 +18,6 @@ BQNV match(const char* regex, const char* src) {
         return bqn_makeF64(-1);
     }
 
-    ovector[1] = 0;
     while ((rc = pcre_exec(re, NULL, src, strlen(src), ovector[1], 0, ovector, OVECCOUNT)) >= 0) { 
         const char *s;
 
