@@ -8,8 +8,8 @@
 
 BQNV match(const char* regex, const char* src) {
     BQNV vals[BUFFER];
-    const char *error;
     int erroffset, ovector[OVECCOUNT], rc, i=0;
+    const char *error;
 
     pcre* re = pcre_compile(regex, 0, &error, &erroffset, NULL);
 
@@ -28,7 +28,12 @@ BQNV match(const char* regex, const char* src) {
         }
 
         if (pcre_get_substring(src, ovector, rc, 0, &s) >= 0) {
-            vals[i]=bqn_makeC8Vec(strlen(s), (uint8_t*)s);
+            BQNV val[3];
+            val[0] = bqn_makeC8Vec(strlen(s), (uint8_t*)s);
+            val[1] = bqn_makeF64((double)ovector[0]);
+            val[2] = bqn_makeF64((double)ovector[1]);
+            vals[i]=bqn_makeObjVec(3, val);
+            
             pcre_free_substring(s);
             i++;
         }
