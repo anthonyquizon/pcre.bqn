@@ -8,4 +8,3 @@ Replace⇐{
     i←↕≠src ⋄ s←∨´i⊸=¨1⊑¨m ⋄ e←∨´i⊸=¨2⊑¨m ⋄ g←+`s∨e
     ∾r¨⌾((g/˜s)⊸⊏) g⊔src
 }
-•Show "\d+\w" Replace "11a2b---3c"‿"xy"
