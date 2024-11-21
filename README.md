@@ -1,9 +1,9 @@
 # PCRE Regular expressions in BQN
 
-# Dependencies
+## Dependencies
 - pcre
 - cbqn
 
-# Getting started
+## Getting started
 - `make` 
 - `bqn test/01.bqn` 
