@@ -1,2 +1,2 @@
-lib.so:src/lib.c
-	$(CC) -lpcre -lcbqn -shared src/lib.c -o src/lib.so
+lib.so:lib.c
+	$(CC) -lpcre -lcbqn -shared lib.c -o lib.so
