@@ -11,9 +11,6 @@ BQNV match(const char* regex, const char* src) {
     const char *error;
     int erroffset, ovector[OVECCOUNT], rc, i=0;
 
-    regex="\\d\\w";
-    src="1a2b";
-
     pcre* re = pcre_compile(regex, 0, &error, &erroffset, NULL);
 
     if (re == NULL) {
